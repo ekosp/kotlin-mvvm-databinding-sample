@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="moneyActivityCallback"
+            type="com.ryadav3.mvvmsample.view.callback.MoneyActivityCallback" />
+
+        <variable
+            name="money"
+            type="com.ryadav3.mvvmsample.service.model.Money"
+            />
+
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edtSubTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Sub Total"
+                android:inputType="number"
+                android:padding="8dp" />
+
+            <EditText
+                android:id="@+id/edtDiskon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Diskon"
+                android:inputType="number"
+                android:padding="8dp"/>
+
+            <EditText
+                android:id="@+id/edtTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Total"
+                android:text="@{Integer.toString(money.total)}"
+                android:inputType="number"
+                android:padding="8dp"/>
+
+            <EditText
+                android:id="@+id/edtPajak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pajak"
+                android:text="@{Integer.toString(money.pajak)}"
+                android:inputType="number"
+                android:padding="8dp"/>
+
+            <EditText
+                android:id="@+id/edtJumlahTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Jumlah Total"
+                android:text="@{Integer.toString(money.jumlahTotal)}"
+                android:inputType="number"
+                android:padding="8dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:onClick="@{(theView) -> moneyActivityCallback.onCalculateClick(theView)}"
+                android:text="HITUNG" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>
